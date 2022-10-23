@@ -21,6 +21,8 @@
 	<link href="assets/css/app.css" rel="stylesheet">
 	<link href="assets/css/icons.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <!-- Theme Style CSS -->
     <link rel="stylesheet" href="assets/css/dark-theme.css" />
     <link rel="stylesheet" href="assets/css/semi-dark.css" />

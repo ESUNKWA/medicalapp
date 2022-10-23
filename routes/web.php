@@ -16,16 +16,24 @@ use App\Http\Controllers\AccueilController;
 
 Route::get('accueil', [AccueilController::class, 'index']);
 
-
+Route::get('/consultations', function () {
+    return view('/pages/patients/consultations');
+});
 Route::get('/', function () {
     return view('authentication-signin');
 });
 Route::get('/index', function () {
     return view('index');
 });
+Route::get('/patients', function () {
+    return view('/pages/patients/patients');
+});
 Route::get('/dashboard-alternate', function () {
     return view('dashboard-alternate');
 });
+
+
+
 /*App*/
 Route::get('/app-emailbox', function () {
     return view('app-emailbox');
