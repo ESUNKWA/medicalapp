@@ -8,18 +8,16 @@
 <div class="page-wrapper">
     <div class="page-content">
         <!--breadcrumb-->
-        @include('layouts.breadcrumb', ['menu'=> 'Accueil', 'path'=> 'Patient'])
+        @include('layouts.breadcrumb', ['menu'=> 'Utilisateurs', 'path'=> 'Utilisateurs'])
         <!--end breadcrumb-->
         <div class="card">
             <div class="card-body">
-                <h4 class="mb-0">Liste des patients</h4>
-
+                <h4 class="mb-0">Liste des utilisateurs</h4>
                 <div style="position: absolute; top: 10px;   right: 5px;" class="btn-group" role="group" aria-label="Basic example">
-                    <a type="button" class="btn btn-primary" href="{{ url('/accueil') }}" ><i class="bx bx-share"></i>
-                        retour
+                    <a type="button" class="btn btn-primary" id="btnModal" title="Saisir un nouveau utilisateur" >
+                        Nouveau <i class="bx bx-plus"></i>
                     </a>
                 </div>
-
                 <hr/>
                 <div class="card">
                     <div class="card-body">
@@ -92,6 +90,29 @@
     </div>
 </div>
 
+<div class="col">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#utilisateurModal">Large Modal</button>
+    <!-- Modal -->
+    <div class="modal fade" id="utilisateurModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle" ></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @section("script")
@@ -100,6 +121,14 @@
 <script>
     $(document).ready(function() {
         $('#example').DataTable();
+
+        //Script SQL
+        $('#btnModal').on('click', function(){
+            $('#modalTitle').empty();
+            $('#modalTitle').append('Saisir un nouveau utilisateur');
+            $('#utilisateurModal').modal('show');
+        });
+
     } );
 </script>
 <script>

@@ -4,28 +4,16 @@
             <div class="page-wrapper">
                 <div class="page-content">
                     <!--breadcrumb-->
-                    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <div class="breadcrumb-title pe-3">Applications</div>
-                        <div class="ps-3">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb mb-0 p-0">
-                                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">To Do List</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
+                    @include('layouts.breadcrumb', ['menu'=> '', 'path'=> 'Accueil'])
+
                     <!--end breadcrumb-->
                     <div class="card">
                         <div class="card-body">
                             <h4 class="mb-0">To Do List</h4>
                             <hr/>
-
-
                             <div class="row gy-3 mt-5">
                                 <div class="row">
-                                                                      
+
                                     <div class="col px-5">
                                         <div class="card radius-10 bgCardAcceuil">
                                             <div class="card-body">
@@ -70,9 +58,9 @@
                                 </div>
                             </div>
 
-                            <div class="row gy-3 mt-5">
+                            {{-- <div class="row gy-3 mt-5">
                                 <div class="row">
-                                                                      
+
                                     <div class="col px-5">
                                         <div class="card radius-10 bgCardAcceuil">
                                             <div class="card-body">
@@ -107,35 +95,39 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
                 </div>
             </div>
+
+
+            <div class="col">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleLargeModal">Large Modal</button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleLargeModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.</div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 		@endsection
 
 @section("script")
 @endsection
 
 
-<div class="col">
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleLargeModal">Large Modal</button>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleLargeModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.</div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+

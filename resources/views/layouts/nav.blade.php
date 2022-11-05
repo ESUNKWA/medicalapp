@@ -12,7 +12,7 @@
             </div>
             <!--navigation-->
             <ul class="metismenu" id="menu">
-              
+
                 <li>
                     <a href="{{ url('index') }}">
                         <div class="parent-icon"><i class='bx bx-cookie'></i>
@@ -27,29 +27,7 @@
                         <div class="menu-title">Accueil</div>
                     </a>
                 </li>
-                <li>
-                    <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class="bx bx-category"></i>
-                        </div>
-                        <div class="menu-title">Utilisateurs</div>
-                    </a>
-                    <ul>
-                        <li> <a href="{{ url('app-emailbox') }}"><i class="bx bx-right-arrow-alt"></i>Email</a>
-                        </li>
-                        <li> <a href="{{ url('app-chat-box') }}"><i class="bx bx-right-arrow-alt"></i>Chat Box</a>
-                        </li>
-                        <li> <a href="{{ url('app-file-manager') }}"><i class="bx bx-right-arrow-alt"></i>File Manager</a>
-                        </li>
-                        <li> <a href="{{ url('app-contact-list') }}"><i class="bx bx-right-arrow-alt"></i>Contatcs</a>
-                        </li>
-                        <li> <a href="{{ url('app-to-do') }}"><i class="bx bx-right-arrow-alt"></i>Todo List</a>
-                        </li>
-                        <li> <a href="{{ url('app-invoice') }}"><i class="bx bx-right-arrow-alt"></i>Invoice</a>
-                        </li>
-                        <li> <a href="{{ url('app-fullcalender') }}"><i class="bx bx-right-arrow-alt"></i>Calendar</a>
-                        </li>
-                    </ul>
-                </li>
+
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class="bx bx-category"></i>
@@ -61,6 +39,38 @@
                         </li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class="bx bx-category"></i>
+                        </div>
+                        <div class="menu-title">Personnel médical</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{ url('/specialites') }}"><i class="bx bx-right-arrow-alt"></i>Spécialités</a>
+                        </li>
+                        <li> <a href="{{ url('/categories') }}"><i class="bx bx-right-arrow-alt"></i>Catégories</a>
+                        </li>
+                        <li> <a href="{{ url('/personnels') }}"><i class="bx bx-right-arrow-alt"></i>Personnel</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class="bx bx-category"></i>
+                        </div>
+                        <div class="menu-title">Prestations</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{ url('/types_actes_medicaux') }}"><i class="bx bx-right-arrow-alt"></i>Types des actes</a>
+                        </li>
+                        <li> <a href="{{ url('/actesmedicaux') }}"><i class="bx bx-right-arrow-alt"></i>Actes médicaux</a>
+                        </li>
+                        <li> <a href="{{ url('/prestations') }}"><i class="bx bx-right-arrow-alt"></i>Prestations</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class="bx bx-category"></i>
@@ -68,11 +78,25 @@
                         <div class="menu-title">Clinique</div>
                     </a>
                     <ul>
-                        <li> <a href="{{ url('app-emailbox') }}"><i class="bx bx-right-arrow-alt"></i>Email</a>
+                        <li> <a href="{{ url('app-emailbox') }}"><i class="bx bx-right-arrow-alt"></i>Infos clinique</a>
+                        </li>
+                        <li> <a href="{{ url('app-emailbox') }}"><i class="bx bx-right-arrow-alt"></i>Chambres patients</a>
                         </li>
                     </ul>
                 </li>
-                
+
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class="bx bx-category"></i>
+                        </div>
+                        <div class="menu-title">Utilisateurs</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{ url('/utilisateurs') }}"><i class="bx bx-right-arrow-alt"></i>Utilisateurs</a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
             <!--end navigation-->
         </div>

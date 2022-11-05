@@ -1014,7 +1014,7 @@
 		</div>
 		<!--end page wrapper -->
 		@endsection
-	
+
 	@section("script")
 	<script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
 	<script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
@@ -1029,7 +1029,7 @@
 				lengthChange: false,
 				buttons: [ 'copy', 'excel', 'pdf', 'print']
 			} );
-		 
+
 			table.buttons().container()
 				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
 		} );

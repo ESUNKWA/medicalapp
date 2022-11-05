@@ -1,3 +1,11 @@
 .bgCardAcceuil{
     background-color: #cac7c4;
 }
+
+
+.icons {
+    font-size: 25px;
+    cursor: pointer;
+    margin: 3px;
+}
+
