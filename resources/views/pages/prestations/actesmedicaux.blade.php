@@ -86,19 +86,14 @@
                 </div>
                 <div class="modal-body">
 
-                    <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2" id="affichemsg" hidden>
-                        <div class="d-flex align-items-center">
-                            <div class="font-35 text-white"><i class="bx bxs-check-circle"></i>
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0 text-white">Success Alerts</h6>
-                                <div class="text-white" id="responsemsgsuccess" ></div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div id="notifySuccess" hidden>
+                        <x-notify status="1" />
+                    </div>
+                    <div id="notifyError" hidden>
+                        <x-notify status="0" />
                     </div>
 
-                    <form class="row g-3" id="actesmedformsModal">
+                    <form class="row g-3" id="actesmedforms">
                         @csrf
 
                         <div class="row">
@@ -186,7 +181,7 @@
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         $('#btnregister').show();
         $('#btnmodif').hide();
-        var personnel = {};
+        var actesmedicaux = {};
 
         //Script SQL
         $('#btnModal').on('click', function(){
@@ -240,14 +235,20 @@
                 success:function(res){
 
                     if (res._status == 1) {
-                        $('#actesmedformsModal')[0].reset();
+                        $('#actesmedforms')[0].reset();
                         $('#responsemsgsuccess').empty();
                         $('#responsemsgsuccess').append(res._message);
-                        $('#affichemsg').removeAttr('hidden', true);
+                        $('#notifyError').attr('hidden');
+                        $('#notifySuccess').removeAttr('hidden', true);
                         setTimeout(() => {
                             location.reload();
-                        }, 500);
+                        }, 1000);
                     }else{
+                        $('#responsemsgerror').empty();
+                        $('#responsemsgerror').append(res._error);
+                        $('#notifySuccess').attr('hidden');
+                        $('#notifyError').removeAttr('hidden', true);
+
                     }
                 }
             });
@@ -256,18 +257,17 @@
 
         //Récupération des détails d'une ligne
         $('body').on('click', '.edit', function(){
-            personnel = $(this).data('id');
+            actesmedicaux = $(this).data('id');
             $('#btnregister').hide();
             $('#btnmodif').show();
             $('#modalTitle').empty();
-            $('#modalTitle').append(`Modification des infos de [ ${personnel.r_nom} ${personnel.r_libelle} ]`);
+            $('#modalTitle').append(`Modification de l\'acte médical [ ${actesmedicaux.r_libelle} ]`);
             //Affectation des valeurs dans les champs
-            $('#r_nom').val(personnel.r_nom);
-            $('#r_libelle').val(personnel.r_libelle);
-            $('#r_contact').val(personnel.r_contact);
-            $('#r_type_acte').val(personnel.r_type_acte);
-            $('#r_specialite').val(personnel.r_specialite);
-            $('#r_description').val(personnel.r_description);
+            $('#r_type_acte').val(actesmedicaux.r_type_acte);
+            $('#r_libelle').val(actesmedicaux.r_libelle);
+            $('#r_code').val(actesmedicaux.r_code);
+            $('#r_prix').val(actesmedicaux.r_prix);
+            $('#r_description').val(actesmedicaux.r_description);
             $('#actesmedformsModal').modal('show');
         });
 
@@ -278,11 +278,9 @@
             //Récupération des données
             let dataSend = {
                 "_token": "{{ csrf_token() }}",
-                r_nom: $('#r_nom').val().trim(),
+                r_type_acte: $('#r_type_acte').val(),
                 r_libelle: $('#r_libelle').val().trim(),
-                r_contact: $('#r_contact').val().trim(),
-                r_personnel: $('#r_personnel').val(),
-                r_specialite: $('#r_specialite').val(),
+                r_prix: $('#r_prix').val().trim(),
                 r_description: $('#r_description').val().trim()
             };
 
@@ -297,21 +295,25 @@
 
             $.ajax({
                 type:'PUT',
-                url:`{{ url('/personnels') }}/${personnel.id}`,
+                url:`{{ url('/actesmedicaux') }}/${actesmedicaux.id}`,
                 data:dataSend,
                 dataType: 'JSON',
                 success:function(res){
                     console.log(res);
                     if (res._status == 1) {
-                        $('#actesmedformsModal')[0].reset();
+                        $('#actesmedforms')[0].reset();
                         $('#responsemsgsuccess').empty();
                         $('#responsemsgsuccess').append(res._message);
-                        $('#affichemsg').removeAttr('hidden', true);
+                        $('#notifyError').attr('hidden');
+                        $('#notifySuccess').removeAttr('hidden', true);
                         setTimeout(() => {
                             location.reload();
-                        }, 500);
+                        }, 1000);
                     }else{
-
+                        $('#responsemsgerror').empty();
+                        $('#responsemsgerror').append(res._error);
+                        $('#notifySuccess').attr('hidden');
+                        $('#notifyError').removeAttr('hidden', true);
                     }
                 }
             });
